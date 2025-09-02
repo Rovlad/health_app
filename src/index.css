@@ -94,6 +94,8 @@
 
   body {
     @apply bg-background text-foreground font-sans dark:bg-background dark:text-foreground;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
   }
 
   pre, code {
@@ -129,4 +131,24 @@
 .markdown-preview ul,
 .markdown-preview ol {
   @apply my-4 ml-6;
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+  
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
 }
