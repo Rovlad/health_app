@@ -30,57 +30,57 @@ const CommunityView: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'feed' | 'topics'>('feed');
   
   const topics: Topic[] = [
-    { id: '1', name: 'Healthy Recipes', members: 234, posts: 89, trending: true },
-    { id: '2', name: 'Fitness Motivation', members: 189, posts: 156, trending: true },
-    { id: '3', name: 'Sleep & Recovery', members: 145, posts: 67, trending: false },
-    { id: '4', name: 'Stress Management', members: 198, posts: 123, trending: false },
-    { id: '5', name: 'Yoga & Mindfulness', members: 167, posts: 78, trending: true }
+    { id: '1', name: 'Здоровые рецепты', members: 234, posts: 89, trending: true },
+    { id: '2', name: 'Мотивация к фитнесу', members: 189, posts: 156, trending: true },
+    { id: '3', name: 'Сон и восстановление', members: 145, posts: 67, trending: false },
+    { id: '4', name: 'Управление стрессом', members: 198, posts: 123, trending: false },
+    { id: '5', name: 'Йога и осознанность', members: 167, posts: 78, trending: true }
   ];
 
   const posts: Post[] = [
     {
       id: '1',
       author: {
-        name: 'Dr. Sarah Chen',
+        name: 'Др. Сара Чен',
         avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816737257_87aef8bd.webp',
         isExpert: true,
-        title: 'Nutritionist'
+        title: 'Нутрициолог'
       },
-      content: 'Starting your day with protein can help stabilize blood sugar and reduce cravings throughout the day. Try adding Greek yogurt, eggs, or a protein smoothie to your morning routine! 🥚✨',
+      content: 'Начало дня с белком может помочь стабилизировать уровень сахара в крови и снизить тягу к еде в течение дня. Попробуйте добавить греческий йогурт, яйца или белковый смузи в свою утреннюю рутину! 🥚✨',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816746370_06a620c2.webp',
       likes: 47,
       comments: 12,
       timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
-      topic: 'Healthy Recipes',
+      topic: 'Здоровые рецепты',
       liked: false
     },
     {
       id: '2',
       author: {
-        name: 'Alex Johnson',
+        name: 'Алекс Джонсон',
         avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816738981_82031f9d.webp',
         isExpert: false
       },
-      content: 'Just completed my first 5K run! 🏃‍♂️ Three months ago I could barely run for 2 minutes. The key was starting slow and being consistent. Anyone else working on their running goals?',
+      content: 'Только что завершил свой первый забег на 5 км! 🏃‍♂️ Три месяца назад я едва мог бежать 2 минуты. Ключ был в том, чтобы начинать медленно и быть последовательным. Кто-нибудь ещё работает над своими беговыми целями?',
       likes: 23,
       comments: 8,
       timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000),
-      topic: 'Fitness Motivation',
+      topic: 'Мотивация к фитнесу',
       liked: true
     },
     {
       id: '3',
       author: {
-        name: 'Maria Garcia',
+        name: 'Мария Гарсия',
         avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816740805_5797ce82.webp',
         isExpert: false
       },
-      content: 'Made this amazing quinoa Buddha bowl for lunch today! Packed with nutrients and so colorful. Recipe in comments if anyone wants it! 🥗',
+      content: 'Приготовила сегодня на обед эту потрясающую чашу-Будда с киноа! Полна питательных веществ и такая яркая. Рецепт в комментариях, если кому-то нужен! 🥗',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816748265_c4ca6461.webp',
       likes: 31,
       comments: 15,
       timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000),
-      topic: 'Healthy Recipes',
+      topic: 'Здоровые рецепты',
       liked: false
     }
   ];
@@ -95,12 +95,12 @@ const CommunityView: React.FC = () => {
       <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold mb-2">Wellness Community</h1>
-            <p className="text-green-100">Connect, share, and inspire each other</p>
+            <h1 className="text-2xl font-bold mb-2">Сообщество здоровья</h1>
+            <p className="text-green-100">Общайтесь, делитесь и вдохновляйте друг друга</p>
           </div>
           <div className="text-right">
             <div className="text-3xl font-bold">1.2k</div>
-            <div className="text-sm text-green-100">Active members</div>
+            <div className="text-sm text-green-100">Активные участники</div>
           </div>
         </div>
       </div>
@@ -108,12 +108,12 @@ const CommunityView: React.FC = () => {
       {/* Tab Navigation */}
       <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
         {[
-          { key: 'feed', label: 'Community Feed', icon: MessageCircle },
-          { key: 'topics', label: 'Topics', icon: Users }
+          { key: 'feed', label: 'Лента сообщества', icon: MessageCircle },
+          { key: 'topics', label: 'Темы', icon: Users }
         ].map(({ key, label, icon: Icon }) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as any)}
+            onClick={() => setActiveTab(key as 'feed' | 'topics')}
             className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
               activeTab === key
                 ? 'bg-white text-green-600 shadow-sm'
@@ -144,7 +144,7 @@ const CommunityView: React.FC = () => {
                     {post.author.isExpert && (
                       <div className="flex items-center space-x-1 px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
                         <Star className="w-3 h-3 fill-current" />
-                        <span className="text-xs font-medium">Expert</span>
+                        <span className="text-xs font-medium">Эксперт</span>
                       </div>
                     )}
                   </div>
@@ -195,7 +195,7 @@ const CommunityView: React.FC = () => {
                   
                   <button className="flex items-center space-x-2 text-sm text-gray-600 hover:text-green-600">
                     <Share2 className="w-5 h-5" />
-                    <span>Share</span>
+                    <span>Поделиться</span>
                   </button>
                 </div>
               </div>
@@ -216,25 +216,25 @@ const CommunityView: React.FC = () => {
                     {topic.trending && (
                       <div className="flex items-center space-x-1 px-2 py-1 bg-orange-100 text-orange-700 rounded-full">
                         <TrendingUp className="w-3 h-3" />
-                        <span className="text-xs font-medium">Trending</span>
+                        <span className="text-xs font-medium">Тренд</span>
                       </div>
                     )}
                   </div>
                   <div className="flex items-center space-x-4 text-sm text-gray-600">
                     <div className="flex items-center space-x-1">
                       <Users className="w-4 h-4" />
-                      <span>{topic.members} members</span>
+                      <span>{topic.members} участников</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <MessageCircle className="w-4 h-4" />
-                      <span>{topic.posts} posts</span>
+                      <span>{topic.posts} постов</span>
                     </div>
                   </div>
                 </div>
               </div>
               
               <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium">
-                Join Topic
+                Присоединиться к теме
               </button>
             </div>
           ))}

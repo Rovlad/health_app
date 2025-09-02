@@ -24,9 +24,9 @@ const CoachingHub: React.FC = () => {
 
   const coach: Coach = {
     id: '1',
-    name: 'Dr. Sarah Chen',
+    name: 'Др. Сара Чен',
     avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816737257_87aef8bd.webp',
-    specialties: ['Nutrition', 'Weight Management', 'Stress Reduction'],
+    specialties: ['Питание', 'Контроль веса', 'Уменьшение стресса'],
     rating: 4.9,
     isOnline: true
   };
@@ -35,21 +35,21 @@ const CoachingHub: React.FC = () => {
     {
       id: '1',
       senderId: 'coach',
-      content: 'Great job completing your meditation session today! I noticed you\'ve been consistent with your stress management routine.',
+      content: 'Отличная работа по завершению медитации сегодня! Я заметила, что вы последовательно выполняете свою рутину по управлению стрессом.',
       timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
       type: 'text'
     },
     {
       id: '2',
       senderId: 'user',
-      content: 'Thank you! I\'m feeling much more centered. Should I increase the duration?',
+      content: 'Спасибо! Я чувствую себя гораздо более сосредоточенным. Мне стоит увеличить продолжительность?',
       timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000),
       type: 'text'
     },
     {
       id: '3',
       senderId: 'coach',
-      content: 'Let\'s try 20 minutes tomorrow. I\'ve assigned you a new breathing exercise to try.',
+      content: 'Давайте попробуем 20 минут завтра. Я назначила вам новое дыхательное упражнение для опробования.',
       timestamp: new Date(Date.now() - 30 * 60 * 1000),
       type: 'task'
     }
@@ -58,34 +58,34 @@ const CoachingHub: React.FC = () => {
   const upcomingSessions = [
     {
       id: '1',
-      title: 'Weekly Check-in',
-      date: 'Tomorrow, 2:00 PM',
-      duration: '30 min',
-      type: 'Video Call'
+      title: 'Недельная проверка',
+      date: 'Завтра, 14:00',
+      duration: '30 мин',
+      type: 'Видеозвонок'
     },
     {
       id: '2',
-      title: 'Group Nutrition Workshop',
-      date: 'Friday, 10:00 AM',
-      duration: '60 min',
-      type: 'Group Session'
+      title: 'Групповой семинар по питанию',
+      date: 'Пятница, 10:00',
+      duration: '60 мин',
+      type: 'Групповое занятие'
     }
   ];
 
   const assignedTasks = [
     {
       id: '1',
-      title: 'Try the 4-7-8 breathing technique',
-      description: 'Practice this technique for 5 minutes before bed',
-      dueDate: 'Today',
+      title: 'Попробуйте дыхательную технику 4-7-8',
+      description: 'Практикуйте эту технику 5 минут перед сном',
+      dueDate: 'Сегодня',
       completed: false,
       points: 15
     },
     {
       id: '2',
-      title: 'Log your meals for 3 days',
-      description: 'Take photos and note portion sizes',
-      dueDate: 'This week',
+      title: 'Записывайте свои приёмы пищи 3 дня',
+      description: 'Делайте фотографии и отмечайте размеры порций',
+      dueDate: 'На этой неделе',
       completed: true,
       points: 25
     }
@@ -130,7 +130,7 @@ const CoachingHub: React.FC = () => {
                 ))}
                 <span className="ml-1 text-sm text-gray-600">{coach.rating}</span>
               </div>
-              <span className="text-sm text-green-600 font-medium">Online</span>
+              <span className="text-sm text-green-600 font-medium">Онлайн</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {coach.specialties.map((specialty) => (
@@ -149,13 +149,13 @@ const CoachingHub: React.FC = () => {
       {/* Tab Navigation */}
       <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
         {[
-          { key: 'chat', label: 'Chat', icon: MessageCircle },
-          { key: 'tasks', label: 'Tasks', icon: CheckSquare },
-          { key: 'sessions', label: 'Sessions', icon: Calendar }
+          { key: 'chat', label: 'Чат', icon: MessageCircle },
+          { key: 'tasks', label: 'Задачи', icon: CheckSquare },
+          { key: 'sessions', label: 'Сессии', icon: Calendar }
         ].map(({ key, label, icon: Icon }) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as any)}
+            onClick={() => setActiveTab(key as 'chat' | 'tasks' | 'sessions')}
             className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
               activeTab === key
                 ? 'bg-white text-blue-600 shadow-sm'
@@ -208,7 +208,7 @@ const CoachingHub: React.FC = () => {
                 type="text"
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
-                placeholder="Type your message..."
+                placeholder="Напишите сообщение..."
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
               />
@@ -239,11 +239,11 @@ const CoachingHub: React.FC = () => {
                   {task.title}
                 </h3>
                 <div className="flex items-center space-x-2">
-                  <span className="text-sm font-medium text-blue-600">+{task.points} pts</span>
+                  <span className="text-sm font-medium text-blue-600">+{task.points} баллов</span>
                   <span className={`px-2 py-1 rounded-full text-xs ${
                     task.completed ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'
                   }`}>
-                    {task.completed ? 'Completed' : task.dueDate}
+                    {task.completed ? 'Выполнено' : task.dueDate}
                   </span>
                 </div>
               </div>
@@ -273,7 +273,7 @@ const CoachingHub: React.FC = () => {
                   </div>
                 </div>
                 <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm">
-                  Join
+                  Присоединиться
                 </button>
               </div>
             </div>

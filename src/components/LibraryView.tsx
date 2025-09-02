@@ -20,68 +20,68 @@ const LibraryView: React.FC = () => {
   const libraryItems: LibraryItem[] = [
     {
       id: '1',
-      title: 'Sleep Optimization Fundamentals',
-      description: 'Learn science-backed strategies to improve your sleep quality and duration',
+      title: 'Основы оптимизации сна',
+      description: 'Изучите научно обоснованные стратегии для улучшения качества и продолжительности сна',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816746370_06a620c2.webp',
-      duration: '45 min',
-      difficulty: 'Beginner',
+      duration: '45 мин',
+      difficulty: 'Начинающий',
       rating: 4.8,
-      category: 'Sleep',
+      category: 'Сон',
       type: 'course'
     },
     {
       id: '2',
-      title: 'Stress Management Techniques',
-      description: 'Practical tools for managing stress in the workplace and daily life',
+      title: 'Методы управления стрессом',
+      description: 'Практические инструменты для управления стрессом на рабочем месте и в повседневной жизни',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816748265_c4ca6461.webp',
-      duration: '30 min',
-      difficulty: 'Beginner',
+      duration: '30 мин',
+      difficulty: 'Начинающий',
       rating: 4.9,
-      category: 'Mental Health',
+      category: 'Психическое здоровье',
       type: 'course'
     },
     {
       id: '3',
-      title: 'Mediterranean Power Bowl',
-      description: 'Nutrient-dense bowl with quinoa, vegetables, and healthy fats',
+      title: 'Средиземноморская чаша энергии',
+      description: 'Питательная чаша с киноа, овощами и полезными жирами',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816750083_42b4f873.webp',
-      duration: '20 min',
-      difficulty: 'Beginner',
+      duration: '20 мин',
+      difficulty: 'Начинающий',
       rating: 4.7,
-      category: 'Mediterranean',
+      category: 'Средиземноморская',
       type: 'recipe'
     },
     {
       id: '4',
-      title: 'Green Goddess Smoothie',
-      description: 'Energizing smoothie packed with spinach, avocado, and protein',
+      title: 'Смузи зелёная богиня',
+      description: 'Энергизирующий смузи, наполненный шпинатом, авокадо и белком',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816751840_625059fc.webp',
-      duration: '5 min',
-      difficulty: 'Beginner',
+      duration: '5 мин',
+      difficulty: 'Начинающий',
       rating: 4.6,
-      category: 'Smoothies',
+      category: 'Смузи',
       type: 'recipe'
     },
     {
       id: '5',
-      title: 'Morning Yoga Flow',
-      description: 'Gentle yoga sequence to start your day with energy and focus',
+      title: 'Утренняя йога',
+      description: 'Нежная последовательность йоги, чтобы начать день с энергией и концентрацией',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816758631_8cc37e36.webp',
-      duration: '15 min',
-      difficulty: 'Beginner',
+      duration: '15 мин',
+      difficulty: 'Начинающий',
       rating: 4.8,
-      category: 'Yoga',
+      category: 'Йога',
       type: 'exercise'
     },
     {
       id: '6',
-      title: 'HIIT Cardio Blast',
-      description: 'High-intensity interval training for maximum calorie burn',
+      title: 'Интенсивная кардио тренировка',
+      description: 'Высокоинтенсивная интервальная тренировка для максимального сжигания калорий',
       image: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816760400_6e060979.webp',
-      duration: '25 min',
-      difficulty: 'Advanced',
+      duration: '25 мин',
+      difficulty: 'Продвинутый',
       rating: 4.5,
-      category: 'Cardio',
+      category: 'Кардио',
       type: 'exercise'
     }
   ];
@@ -112,11 +112,11 @@ const LibraryView: React.FC = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Beginner':
+      case 'Начинающий':
         return 'bg-green-100 text-green-700';
-      case 'Intermediate':
+      case 'Средний':
         return 'bg-yellow-100 text-yellow-700';
-      case 'Advanced':
+      case 'Продвинутый':
         return 'bg-red-100 text-red-700';
       default:
         return 'bg-gray-100 text-gray-700';
@@ -129,12 +129,12 @@ const LibraryView: React.FC = () => {
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold mb-2">Wellness Library</h1>
-            <p className="text-indigo-100">Courses, recipes, and exercises for your journey</p>
+            <h1 className="text-2xl font-bold mb-2">Библиотека здоровья</h1>
+            <p className="text-indigo-100">Курсы, рецепты и упражнения для вашего пути</p>
           </div>
           <div className="text-right">
             <div className="text-3xl font-bold">50+</div>
-            <div className="text-sm text-indigo-100">Resources</div>
+            <div className="text-sm text-indigo-100">Ресурсов</div>
           </div>
         </div>
       </div>
@@ -142,13 +142,13 @@ const LibraryView: React.FC = () => {
       {/* Tab Navigation */}
       <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
         {[
-          { key: 'courses', label: 'Courses' },
-          { key: 'recipes', label: 'Recipes' },
-          { key: 'exercises', label: 'Exercises' }
+          { key: 'courses', label: 'Курсы' },
+          { key: 'recipes', label: 'Рецепты' },
+          { key: 'exercises', label: 'Упражнения' }
         ].map(({ key, label }) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as any)}
+            onClick={() => setActiveTab(key as 'courses' | 'recipes' | 'exercises')}
             className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
               activeTab === key
                 ? 'bg-white text-indigo-600 shadow-sm'
@@ -170,33 +170,33 @@ const LibraryView: React.FC = () => {
             onChange={(e) => setFilter(e.target.value)}
             className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            <option value="all">All Categories</option>
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
+            <option value="all">Все категории</option>
+            <option value="beginner">Начинающий</option>
+            <option value="intermediate">Средний</option>
+            <option value="advanced">Продвинутый</option>
             {activeTab === 'courses' && (
               <>
-                <option value="sleep">Sleep</option>
-                <option value="mental health">Mental Health</option>
+                <option value="sleep">Сон</option>
+                <option value="mental health">Психическое здоровье</option>
               </>
             )}
             {activeTab === 'recipes' && (
               <>
-                <option value="mediterranean">Mediterranean</option>
-                <option value="smoothies">Smoothies</option>
+                <option value="mediterranean">Средиземноморская</option>
+                <option value="smoothies">Смузи</option>
               </>
             )}
             {activeTab === 'exercises' && (
               <>
-                <option value="yoga">Yoga</option>
-                <option value="cardio">Cardio</option>
+                <option value="yoga">Йога</option>
+                <option value="cardio">Кардио</option>
               </>
             )}
           </select>
         </div>
         
         <div className="text-sm text-gray-600">
-          {filteredItems.length} items
+          {filteredItems.length} элементов
         </div>
       </div>
 
@@ -244,8 +244,8 @@ const LibraryView: React.FC = () => {
                   {item.category}
                 </span>
                 <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
-                  {item.type === 'course' ? 'Start Course' : 
-                   item.type === 'recipe' ? 'View Recipe' : 'Start Workout'}
+                  {item.type === 'course' ? 'Начать курс' : 
+                   item.type === 'recipe' ? 'Посмотреть рецепт' : 'Начать тренировку'}
                 </button>
               </div>
             </div>
@@ -258,8 +258,8 @@ const LibraryView: React.FC = () => {
           <div className="text-gray-400 mb-2">
             <BookOpen className="w-12 h-12 mx-auto" />
           </div>
-          <h3 className="text-lg font-medium text-gray-900 mb-1">No items found</h3>
-          <p className="text-gray-600">Try adjusting your filters to see more content.</p>
+          <h3 className="text-lg font-medium text-gray-900 mb-1">Элементы не найдены</h3>
+          <p className="text-gray-600">Попробуйте скорректировать фильтры, чтобы увидеть больше содержимого.</p>
         </div>
       )}
     </div>

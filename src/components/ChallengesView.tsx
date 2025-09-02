@@ -29,11 +29,11 @@ const ChallengesView: React.FC = () => {
   const challenges: Challenge[] = [
     {
       id: '1',
-      title: '10K Steps Daily',
-      description: 'Walk 10,000 steps every day for a week',
+      title: '10 000 шагов в день',
+      description: 'Проходить 10 000 шагов каждый день в течение недели',
       type: 'personal',
       participants: 1,
-      duration: '7 days',
+      duration: '7 дней',
       progress: 71,
       reward: 100,
       status: 'active',
@@ -41,11 +41,11 @@ const ChallengesView: React.FC = () => {
     },
     {
       id: '2',
-      title: 'Team Wellness Sprint',
-      description: 'Complete wellness activities as a team',
+      title: 'Командный спринт здоровья',
+      description: 'Выполняйте деятельность по здоровью в команде',
       type: 'team',
       participants: 8,
-      duration: '2 weeks',
+      duration: '2 недели',
       progress: 45,
       reward: 250,
       status: 'active',
@@ -53,11 +53,11 @@ const ChallengesView: React.FC = () => {
     },
     {
       id: '3',
-      title: 'Mindful March',
-      description: 'Practice meditation for 30 days',
+      title: 'Осознанный март',
+      description: 'Практикуйте медитацию 30 дней',
       type: 'organization',
       participants: 156,
-      duration: '30 days',
+      duration: '30 дней',
       progress: 23,
       reward: 500,
       status: 'active',
@@ -68,35 +68,35 @@ const ChallengesView: React.FC = () => {
   const leaderboard: LeaderboardEntry[] = [
     {
       id: '1',
-      name: 'Alex Johnson',
+      name: 'Алекс Джонсон',
       avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816738981_82031f9d.webp',
       score: 2847,
       rank: 1,
-      department: 'Engineering'
+      department: 'Инженерия'
     },
     {
       id: '2',
-      name: 'Maria Garcia',
+      name: 'Мария Гарсия',
       avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816740805_5797ce82.webp',
       score: 2691,
       rank: 2,
-      department: 'Marketing'
+      department: 'Маркетинг'
     },
     {
       id: '3',
-      name: 'You',
+      name: 'Вы',
       avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816742930_f52fb1f3.webp',
       score: 2534,
       rank: 3,
-      department: 'Design'
+      department: 'Дизайн'
     },
     {
       id: '4',
-      name: 'David Kim',
+      name: 'Дэвид Ким',
       avatar: 'https://d64gsuwffb70l.cloudfront.net/68b6e52c75fe6868d2fc32d8_1756816737257_87aef8bd.webp',
       score: 2398,
       rank: 4,
-      department: 'Sales'
+      department: 'Продажи'
     }
   ];
 
@@ -145,12 +145,12 @@ const ChallengesView: React.FC = () => {
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold mb-2">Challenges & Competitions</h1>
-            <p className="text-purple-100">Compete, achieve, and earn rewards</p>
+            <h1 className="text-2xl font-bold mb-2">Вызовы и соревнования</h1>
+            <p className="text-purple-100">Соревнуйтесь, достигайте и зарабатывайте награды</p>
           </div>
           <div className="text-right">
             <div className="text-3xl font-bold">3rd</div>
-            <div className="text-sm text-purple-100">Your rank</div>
+            <div className="text-sm text-purple-100">Ваш ранг</div>
           </div>
         </div>
       </div>
@@ -158,12 +158,12 @@ const ChallengesView: React.FC = () => {
       {/* Tab Navigation */}
       <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
         {[
-          { key: 'active', label: 'Active Challenges', icon: Target },
-          { key: 'leaderboard', label: 'Leaderboard', icon: Trophy }
+          { key: 'active', label: 'Активные вызовы', icon: Target },
+          { key: 'leaderboard', label: 'Табло лидеров', icon: Trophy }
         ].map(({ key, label, icon: Icon }) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as any)}
+            onClick={() => setActiveTab(key as 'active' | 'leaderboard')}
             className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
               activeTab === key
                 ? 'bg-white text-blue-600 shadow-sm'
@@ -193,13 +193,13 @@ const ChallengesView: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-lg font-bold text-blue-600">+{challenge.reward}</div>
-                  <div className="text-xs text-gray-500">points</div>
+                  <div className="text-xs text-gray-500">баллов</div>
                 </div>
               </div>
 
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-600">Progress</span>
+                  <span className="text-gray-600">Прогресс</span>
                   <span className="font-medium text-gray-900">{challenge.progress}%</span>
                 </div>
                 
@@ -214,7 +214,7 @@ const ChallengesView: React.FC = () => {
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-1">
                       <Users className="w-4 h-4" />
-                      <span>{challenge.participants} participants</span>
+                      <span>{challenge.participants} участников</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Calendar className="w-4 h-4" />
@@ -222,14 +222,14 @@ const ChallengesView: React.FC = () => {
                     </div>
                   </div>
                   <span className="font-medium">
-                    Ends {challenge.endDate.toLocaleDateString()}
+                    Кончается {challenge.endDate.toLocaleDateString()}
                   </span>
                 </div>
               </div>
 
               <div className="mt-4 pt-4 border-t border-gray-100">
                 <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                  View Details
+                  Посмотреть детали
                 </button>
               </div>
             </div>
@@ -241,8 +241,8 @@ const ChallengesView: React.FC = () => {
       {activeTab === 'leaderboard' && (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
           <div className="p-6 bg-gradient-to-r from-yellow-50 to-orange-50 border-b border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900 mb-2">This Month's Leaders</h2>
-            <p className="text-gray-600">Top performers across all challenges</p>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">Лидеры этого месяца</h2>
+            <p className="text-gray-600">Лучшие результаты по всем вызовам</p>
           </div>
           
           <div className="divide-y divide-gray-100">
@@ -250,7 +250,7 @@ const ChallengesView: React.FC = () => {
               <div 
                 key={entry.id} 
                 className={`p-4 flex items-center space-x-4 ${
-                  entry.name === 'You' ? 'bg-blue-50 border-l-4 border-blue-500' : 'hover:bg-gray-50'
+                  entry.name === 'Вы' ? 'bg-blue-50 border-l-4 border-blue-500' : 'hover:bg-gray-50'
                 }`}
               >
                 <div className="flex items-center justify-center w-8">
@@ -266,13 +266,13 @@ const ChallengesView: React.FC = () => {
                 <div className="flex-1">
                   <div className="flex items-center space-x-2">
                     <h3 className={`font-medium ${
-                      entry.name === 'You' ? 'text-blue-900' : 'text-gray-900'
+                      entry.name === 'Вы' ? 'text-blue-900' : 'text-gray-900'
                     }`}>
                       {entry.name}
                     </h3>
-                    {entry.name === 'You' && (
+                    {entry.name === 'Вы' && (
                       <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium">
-                        You
+                        Вы
                       </span>
                     )}
                   </div>
@@ -283,7 +283,7 @@ const ChallengesView: React.FC = () => {
                   <div className="text-lg font-bold text-gray-900">
                     {entry.score.toLocaleString()}
                   </div>
-                  <div className="text-xs text-gray-500">points</div>
+                  <div className="text-xs text-gray-500">баллов</div>
                 </div>
               </div>
             ))}

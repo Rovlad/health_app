@@ -16,9 +16,9 @@ const HealthDashboard: React.FC = () => {
   const healthMetrics: HealthMetric[] = [
     {
       id: 'steps',
-      name: 'Daily Steps',
+      name: 'Шаги в день',
       value: 8432,
-      unit: 'steps',
+      unit: 'шагов',
       target: 10000,
       icon: <Activity className="w-5 h-5" />,
       color: 'text-blue-600',
@@ -26,9 +26,9 @@ const HealthDashboard: React.FC = () => {
     },
     {
       id: 'sleep',
-      name: 'Sleep Quality',
+      name: 'Качество сна',
       value: 7.5,
-      unit: 'hours',
+      unit: 'часов',
       target: 8,
       icon: <Moon className="w-5 h-5" />,
       color: 'text-purple-600',
@@ -36,9 +36,9 @@ const HealthDashboard: React.FC = () => {
     },
     {
       id: 'heart',
-      name: 'Heart Rate',
+      name: 'Пульс',
       value: 72,
-      unit: 'bpm',
+      unit: 'уд/мин',
       target: 70,
       icon: <Heart className="w-5 h-5" />,
       color: 'text-red-600',
@@ -46,7 +46,7 @@ const HealthDashboard: React.FC = () => {
     },
     {
       id: 'stress',
-      name: 'Stress Level',
+      name: 'Уровень стресса',
       value: 3,
       unit: '/10',
       target: 2,
@@ -67,12 +67,12 @@ const HealthDashboard: React.FC = () => {
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Health Score</h2>
-              <p className="text-gray-600">Your overall wellness today</p>
+              <h2 className="text-2xl font-bold text-gray-900">Оценка здоровья</h2>
+              <p className="text-gray-600">Ваше общее благополучие сегодня</p>
             </div>
             <div className="flex items-center space-x-2">
               <Trophy className="w-6 h-6 text-yellow-500" />
-              <span className="text-sm font-medium text-gray-700">1,247 pts</span>
+              <span className="text-sm font-medium text-gray-700">1,247 баллов</span>
             </div>
           </div>
           
@@ -107,9 +107,9 @@ const HealthDashboard: React.FC = () => {
             </div>
             
             <div className="flex-1">
-              <div className="text-lg font-semibold text-gray-900 mb-1">Great Progress!</div>
-              <div className="text-sm text-gray-600 mb-2">You're 22% above your baseline</div>
-              <div className="text-xs text-green-600 font-medium">↗ +5 points from yesterday</div>
+              <div className="text-lg font-semibold text-gray-900 mb-1">Отличный прогресс!</div>
+              <div className="text-sm text-gray-600 mb-2">Вы на 22% выше своей базовой линии</div>
+              <div className="text-xs text-green-600 font-medium">↗ +5 баллов от вчерашнего</div>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@ const HealthDashboard: React.FC = () => {
               </div>
               
               <div className="text-xs text-gray-500">
-                Target: {metric.target} {metric.unit}
+                Цель: {metric.target} {metric.unit}
               </div>
             </div>
           </div>

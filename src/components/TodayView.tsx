@@ -23,24 +23,24 @@ const TodayView: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([
     {
       id: '1',
-      title: 'Log your morning weight',
-      description: 'Track your progress toward your weight goal',
+      title: 'Записать утренний вес',
+      description: 'Отследивайте прогресс к своей цели по весу',
       points: 10,
       completed: false,
       type: 'habit'
     },
     {
       id: '2',
-      title: 'Complete 15-minute meditation',
-      description: 'Reduce stress with guided breathing exercise',
+      title: 'Завершить 15-минутную медитацию',
+      description: 'Снизьте стресс с помощью направленного дыхательного упражнения',
       points: 15,
       completed: true,
       type: 'coach'
     },
     {
       id: '3',
-      title: 'Join team step challenge',
-      description: 'Beat yesterday\'s team record of 45,000 steps',
+      title: 'Присоединиться к командному вызову по шагам',
+      description: 'Превзойдите вчерашний командный рекорд в 45,000 шагов',
       points: 25,
       completed: false,
       type: 'challenge'
@@ -48,9 +48,9 @@ const TodayView: React.FC = () => {
   ]);
 
   const [habits, setHabits] = useState<Habit[]>([
-    { id: '1', name: 'Water Intake', streak: 7, target: 8, current: 5, unit: 'glasses' },
-    { id: '2', name: 'Steps', streak: 12, target: 10000, current: 8432, unit: 'steps' },
-    { id: '3', name: 'Sleep', streak: 3, target: 8, current: 7.5, unit: 'hours' }
+    { id: '1', name: 'Потребление воды', streak: 7, target: 8, current: 5, unit: 'стаканов' },
+    { id: '2', name: 'Шаги', streak: 12, target: 10000, current: 8432, unit: 'шагов' },
+    { id: '3', name: 'Сон', streak: 3, target: 8, current: 7.5, unit: 'часов' }
   ]);
 
   const toggleTask = (taskId: string) => {
@@ -68,12 +68,12 @@ const TodayView: React.FC = () => {
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 text-white">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-2xl font-bold">Today's Plan</h2>
-            <p className="text-blue-100">3 priority actions for optimal health</p>
+            <h2 className="text-2xl font-bold">План на сегодня</h2>
+            <p className="text-blue-100">3 приоритетных действия для оптимального здоровья</p>
           </div>
           <div className="text-right">
             <div className="text-3xl font-bold">{totalPoints}</div>
-            <div className="text-sm text-blue-100">of {potentialPoints} points</div>
+            <div className="text-sm text-blue-100">из {potentialPoints} баллов</div>
           </div>
         </div>
         
@@ -97,7 +97,7 @@ const TodayView: React.FC = () => {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-900 flex items-center">
           <Target className="w-5 h-5 mr-2 text-blue-600" />
-          Priority Actions
+          Приоритетные действия
         </h3>
         
         {tasks.map((task) => (
@@ -138,10 +138,10 @@ const TodayView: React.FC = () => {
                       task.type === 'coach' ? 'bg-purple-100 text-purple-700' :
                       'bg-orange-100 text-orange-700'
                     }`}>
-                      {task.type}
+                      {task.type === 'habit' ? 'привычка' : task.type === 'coach' ? 'коуч' : 'вызов'}
                     </span>
                     <span className="text-sm font-medium text-gray-600">
-                      +{task.points} pts
+                      +{task.points} баллов
                     </span>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ const TodayView: React.FC = () => {
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-900 flex items-center">
           <Clock className="w-5 h-5 mr-2 text-green-600" />
-          Daily Habits
+          Ежедневные привычки
         </h3>
         
         <div className="grid gap-4">
@@ -172,7 +172,7 @@ const TodayView: React.FC = () => {
                   <div className="flex items-center space-x-1">
                     <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
                     <span className="text-sm font-medium text-orange-600">
-                      {habit.streak} day streak
+                      {habit.streak} дней подряд
                     </span>
                   </div>
                 </div>
@@ -183,7 +183,7 @@ const TodayView: React.FC = () => {
               
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Progress</span>
+                  <span className="text-gray-600">Прогресс</span>
                   <span className="font-medium text-gray-900">
                     {habit.current.toLocaleString()} / {habit.target.toLocaleString()} {habit.unit}
                   </span>
